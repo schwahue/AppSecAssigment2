@@ -53,7 +53,7 @@
         }
     </style>
 </head>
-<body>
+    <body>
     <form id="form1" runat="server">
         <asp:Label ID="lb_genError" runat="server" Visible="False"></asp:Label>
         <table style="width:100%;">
@@ -98,10 +98,10 @@
                     <asp:Label ID="lb_Pwd" runat="server" Text="Password:"></asp:Label>
                 </td>
                 <td class="auto-style21">
-                    <asp:TextBox ID="tb_pwd" runat="server" TextMode="Password" onkeyup="javascript::validate()"></asp:TextBox>
+                    <asp:TextBox ID="tb_pwd" runat="server" TextMode="Password" onkeyup="javascript:validate()"></asp:TextBox>
                 </td>
                 <td class="auto-style12">
-                    <asp:Label ID="lb_pwdError" runat="server" Visible="False"></asp:Label>
+                    <asp:Label ID="lb_pwdError" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style13"></td>
             </tr>
@@ -138,34 +138,34 @@
                 <td class="auto-style13"></td>
             </tr>
         </table>
-    </form>
-    <script type="text/javascript">
+    </form>    <script type="text/javascript">
         function validate() {
-            var str = document.getElementById('<%=tb_pwd.ClientID%>').value;
+            var str = document.getElementById('<%=tb_pwd.ClientID %>').value;
+            console.log("Reached")
 
             if (str.length < 8) {
                 document.getElementById("lb_pwdError").innerHTML = "Password length must be at least 8 characters";
                 document.getElementById("lb_pwdError").style.color = "Red";
                 return ("too_short");
             }
-            else if (str.search(/[0-9]/) == -1) {
-                document.getElementById("lbl_pwdError").innerHTML = "Password require at least 1 number";
-                document.getElementById("lbl_pwdError").style.color = "Red";
+            if (str.search(/[0-9]/) == -1) {
+                document.getElementById("lb_pwdError").innerHTML = "Password require at least 1 number";
+                document.getElementById("lb_pwdError").style.color = "Red";
                 return ("no_number");
             }
-            else if (str.search(/[a-z]/) == -1) {
-                document.getElementById("lbl_pwdError").innerHTML = "Password require at least 1 lower case";
-                document.getElementById("lbl_pwdError").style.color = "Red";
+            if (str.search(/[a-z]/) == -1) {
+                document.getElementById("lb_pwdError").innerHTML = "Password require at least 1 lower case";
+                document.getElementById("lb_pwdError").style.color = "Red";
                 return ("no_lower_case");
             }
-            else if (str.search(/[A-Z]/) == -1) {
-                document.getElementById("lbl_pwdError").innerHTML = "Password require at least 1 upper case";
-                document.getElementById("lbl_pwdError").style.color = "Red";
+            if (str.search(/[A-Z]/) == -1) {
+                document.getElementById("lb_pwdError").innerHTML = "Password require at least 1 upper case";
+                document.getElementById("lb_pwdError").style.color = "Red";
                 return ("no_upper_case");
             }
-            else if (str.search(/[!@#$%^&*(),.?]/) == -1) {
-                document.getElementById("lbl_pwdError").innerHTML = "Password require at least 1 special character";
-                document.getElementById("lbl_pwdError").style.color = "Red";
+            if (str.search(/[!@#$%^&*(),.?]/) == -1) {
+                document.getElementById("lb_pwdError").innerHTML = "Password require at least 1 special character";
+                document.getElementById("lb_pwdError").style.color = "Red";
                 return ("no_special_character");
             }
 
@@ -173,5 +173,6 @@
             document.getElementById("lb_pwdError").style.color = "Blue";
         }
     </script>
+
 </body>
 </html>

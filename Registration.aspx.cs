@@ -134,7 +134,7 @@ namespace AppSecAssigment2
             {
                 using (SqlConnection con = new SqlConnection(MYDBConnectionString))
                 {
-                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Account VALUES(@fName, @lName, @creditCard, @Email, @pwdHash, @pwdSalt, @DOB, @IV, @Key, @lockout,@pwdAge)"))
+                    using (SqlCommand cmd = new SqlCommand("INSERT INTO Account VALUES(@fName, @lName, @creditCard, @Email, @pwdHash, @pwdSalt, @DOB, @IV, @Key, @lockout,@pwdAge,@lockoutDate)"))
                 {
                         using (SqlDataAdapter sda = new SqlDataAdapter())
                         {
@@ -150,6 +150,7 @@ namespace AppSecAssigment2
                             cmd.Parameters.AddWithValue("@Key", Key);
                             cmd.Parameters.AddWithValue("@lockout", 0);
                             cmd.Parameters.AddWithValue("@pwdAge", DateTime.Now);
+                            cmd.Parameters.AddWithValue("@lockoutDate", DateTime.Now);
 
                             cmd.Connection = con;
                             con.Open();

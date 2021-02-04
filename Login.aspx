@@ -58,7 +58,7 @@
                 </tr>
                 <tr>
                     <td class="auto-style3">
-                        <asp:Button ID="btn_resetPwd" runat="server" Text="Change Password" />
+                        <asp:Button ID="btn_resetPwd" runat="server" Text="Change Password" Visible="False" />
                     </td>
                     <td class="auto-style1">
                         <asp:Button ID="btn_Login" runat="server" CssClass="auto-style4" OnClick="btn_Login_Click" Text="Login" />
@@ -67,9 +67,10 @@
                 </tr>
                 <tr>
                     <td class="auto-style7">
+                        &nbsp;</td>
+                    <td class="auto-style8">
                         <asp:Button ID="btn_Register" runat="server" OnClick="btn_Register_Click" Text="Register" />
                     </td>
-                    <td class="auto-style8"></td>
                     <td class="auto-style8"></td>
                 </tr>
                 <tr>
