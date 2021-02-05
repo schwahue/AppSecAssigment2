@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="AppSecAssigment2.Login" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="AppSecAssigment2.Login" ValidateRequest="false" %>
 
 <!DOCTYPE html>
 
@@ -90,6 +90,7 @@
                 document.getElementById("g-recaptcha-response").value = token;
             });
         });
-    </script>
+    </script>
+
 </body>
 </html>
